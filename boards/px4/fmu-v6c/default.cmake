@@ -8,7 +8,6 @@ px4_add_board(
 	ARCHITECTURE cortex-m7
 	ROMFSROOT px4fmu_common
 	IO px4_io-v2_default
-	TESTING
 	UAVCAN_INTERFACES 2
 	UAVCAN_TIMER_OVERRIDE 2
 
@@ -32,25 +31,32 @@ px4_add_board(
 		heater
 		imu/bosch/bmi055
 		imu/invensense/icm42688p
+		irlock
 		lights
 		magnetometer # all available magnetometer drivers
 		optical_flow # all available optical flow drivers
+		osd
 		power_monitor/ina226
 		# power_monitor/ina228
 		# power_monitor/ina238
 		pwm_out
 		pwm_out_sim
 		px4io
+		rc_input
+		roboclaw
+		smart_battery/batmon
+		rpm
 		telemetry # all available telemetry drivers
 		tone_alarm
 		uavcan
 
 	MODULES
 		airspeed_selector
+		attitude_estimator_q
 		battery_status
 		camera_feedback
 		commander
-		control_allocator
+		# control_allocator
 		dataman
 		ekf2
 		esc_battery
@@ -65,6 +71,7 @@ px4_add_board(
 		land_detector
 		landing_target_estimator
 		load_mon
+		local_position_estimator
 		logger
 		# mag_bias_estimator
 		# manual_control
@@ -80,12 +87,18 @@ px4_add_board(
 		sensors
 		sih
 		temperature_compensation
+		uuv_att_control
+		uuv_pos_control
+		vmount
 		vtol_att_control
 
 
 	SYSTEMCMDS
 		bl_update
 		dmesg
+		dumpfile
+		esc_calib
+		gpio
 		hardfault_log
 		i2cdetect
 		led_control
@@ -98,6 +111,7 @@ px4_add_board(
 		perf
 		pwm
 		reboot
+		reflect
 		sd_bench
 		serial_test
 		system_time
@@ -105,6 +119,7 @@ px4_add_board(
 		topic_listener
 		tune_control
 		uorb
+		usb_connected
 		ver
 		work_queue
 
